@@ -28,7 +28,7 @@ export default {
         // Формируем JSON
         const json = JSON.stringify(this.form, null, 4);
 
-        this.jsonResult = json; 
+        this.jsonResult = json;
       }
     },
     /**
@@ -104,13 +104,13 @@ export default {
      * Обнуляет значения полей формы.
      */
     emptyValues() {
-      this.form.email = "";
-      this.form.password = "";
-      this.form.phone = "";
-      this.form.sex = "Мужчина";
-      this.form.sms = false;
-      this.popupHidden = true;
-      this.jsonResult = "";
+      this.form.email.value = "";
+      this.form.password.value = "";
+      this.form.phone.value = "";
+      this.form.sex.value = "Мужчина";
+      this.form.sms.value = false;
+      this.popupHidden.value = true;
+      this.jsonResult.value = "";
     },
   },
 };
