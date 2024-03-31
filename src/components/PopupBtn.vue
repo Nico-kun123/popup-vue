@@ -1,17 +1,19 @@
 <script>
+import { ref } from "vue";
+
 export default {
   data() {
     return {
       form: {
-        email: "",
-        password: "",
-        phone: "",
-        sex: "Мужчина",
-        sms: false,
+        email: ref(""),
+        password: ref(""),
+        phone: ref(""),
+        sex: ref("Мужчина"),
+        sms: ref(false),
       },
-      popupHidden: true, // скрытие popup + показ кнопки "начать" и наоборот
-      darkScreen: false, // потемнение экрана
-      jsonResult: "",
+      popupHidden: ref(true), // скрытие popup + показ кнопки "начать" и наоборот
+      darkScreen: ref(false), // потемнение экрана
+      jsonResult: ref(""),
     };
   },
   methods: {
