@@ -30,6 +30,8 @@ export default {
         // Формируем JSON
         const json = JSON.stringify(this.form, null, 4);
 
+        this.emptyValues();
+
         this.jsonResult = json;
       }
     },
@@ -41,7 +43,7 @@ export default {
      * - Длина пароля = как минимум 10 символов;
      * - Пароль должен содержать как минимум: 1 букву в верхнем регистре, 1 цифру, 1 особый символ. Можно использовать и русские, и английские буквы;
      * - Проверка номера телефона (длина, символы в записи номера и тп).
-     *
+     * 
      * @returns "true", если все поля формы прошли валидацию. Иначе "false"
      */
     async formValidation() {
@@ -92,6 +94,7 @@ export default {
     closePopup() {
       if (!this.popupHidden) {
         this.closeForm();
+        this.emptyValues();
       }
     },
     /**
@@ -100,19 +103,18 @@ export default {
     closeForm() {
       this.popupHidden = true;
       this.darkScreen = false;
-      this.emptyValues();
     },
     /**
      * Обнуляет значения полей формы.
      */
     emptyValues() {
-      this.form.email.value = "";
-      this.form.password.value = "";
-      this.form.phone.value = "";
-      this.form.sex.value = "Мужчина";
-      this.form.sms.value = false;
-      this.popupHidden.value = true;
-      this.jsonResult.value = "";
+      this.form.email = "";
+      this.form.password = "";
+      this.form.phone = "";
+      this.form.sex = "Мужчина";
+      this.form.sms = false;
+      this.popupHidden = true;
+      this.jsonResult = "";
     },
   },
 };
@@ -121,12 +123,12 @@ export default {
 <template>
   <div
     class="container"
-    :class="{ dark: darkScreen, container: !darkScreen }"
+    :class="{ dark: this.darkScreen, container: !this.darkScreen }"
     @click="closePopup"
   >
     <div
       class="popup"
-      :class="{ hide: popupHidden, show: !popupHidden }"
+      :class="{ hide: this.popupHidden, show: !this.popupHidden }"
       @click.stop
     >
       <form @submit.prevent="sendForm">
@@ -195,7 +197,7 @@ export default {
 
         <br />
         <div class="btn wrapper">
-          <button type="submit" class="btn">Отправить</button>
+          <button type="submit" class="btn" @click="sendForm">Отправить</button>
           <button type="button" class="btn cancel" @click="closeForm">
             Закрыть
           </button>
@@ -203,7 +205,7 @@ export default {
       </form>
     </div>
     <button
-      :class="{ hide: !popupHidden, show: popupHidden }"
+      :class="{ hide: !this.popupHidden, show: this.popupHidden }"
       id="popup__toggle"
       @click.stop="toggle"
     >
