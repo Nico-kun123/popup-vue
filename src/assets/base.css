@@ -1,0 +1,22 @@
+:root {
+  --main-font: "Open sans";
+  --elem-margin: 1em;
+  --btn-color: cyan;
+  --btn-color-hover: rgb(17, 217, 217);
+  --cancel-btn-color: rgb(255, 0, 0);
+  --cancel-btn-color-hover: rgb(202, 25, 25);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+  font-family: var(--main-font);
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+}

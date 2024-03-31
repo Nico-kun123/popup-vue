@@ -1,0 +1,82 @@
+@import "./base.css";
+
+#app {
+  height: 100vh;
+  font-weight: normal;
+}
+
+button {
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
+  align-self: center;
+  background-color: var(--btn-color);
+  border: 2px thin rgb(0, 0, 0);
+  border-radius: 12px;
+  font-weight: bolder;
+  font-size: medium;
+  padding: 5px;
+}
+button:hover {
+  background-color: var(--btn-color-hover);
+}
+
+.cancel {
+  background-color: var(--cancel-btn-color);
+}
+.cancel:hover {
+  background-color: var(--cancel-btn-color-hover);
+  color: white;
+}
+
+/* Показывать и скрывать popup */
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+
+
+input,
+select {
+  margin-bottom: var(--elem-margin);
+}
+/* Убрать стрелки у input number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+select {
+  width: 100%;
+  border-radius: 12px;
+  border-width: 1px;
+  padding: 5px 0 5px 5px;
+  margin-right: 5px;
+}
+input[type="checkbox"] {
+  margin-left: 0.5em;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.4s;
+  padding: 3px;
+  color: var(--btn-color-hover);
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: var(--btn-color-hover);
+    border-radius: 12px;
+    color: black;
+  }
+}
