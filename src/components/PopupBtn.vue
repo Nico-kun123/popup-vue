@@ -28,7 +28,7 @@ export default {
         // Формируем JSON
         const json = JSON.stringify(this.form, null, 4);
 
-        this.jsonResult = json;
+        this.jsonResult = json; 
       }
     },
     /**
